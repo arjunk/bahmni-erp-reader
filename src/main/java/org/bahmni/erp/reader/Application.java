@@ -136,17 +136,4 @@ public class Application {
         xmlrpcClient.setConfig(xmlrpcConfig);
         return xmlrpcClient;
     }
-
-    private Object [] read(XmlRpcClient xmlRpcLogin, String dbName, int uid, String password, String table, ArrayList<Object> ids, ArrayList<Object>fields) throws XmlRpcException{
-        Vector<Object> readFunct = new Vector<Object>();
-        readFunct.add(dbName); //Database name
-        readFunct.add(uid);//uid of login user
-        readFunct.add(password);//password of login user
-        readFunct.add(table);//relation i.e. table to search
-        readFunct.add("read");
-        readFunct.add(ids);
-        readFunct.add(fields);
-        Object [] ob = (Object [])xmlRpcLogin.execute("execute",readFunct);
-        return ob;
-    }//read method
 }
